@@ -16,7 +16,7 @@ async def echo_handler(message):
     try:
         await message.answer(message.text)
     except:
-        await message.answer("Попробуй снова!")
+        await message.answer("Попробуй снова!!")
 
 async def main():
     await dp.start_polling(bot)
