@@ -15,7 +15,7 @@ Interpreter type: CUSTOM ENVIRONMENT
 <p>4. Написать вот это в консоль (Стянуть репозиторий):</p>
 
 ```
-git clone git@github.com:mipfikus/tgbot.git
+git clone 
 ```
 
 <p>5. Обновить pip и установить пакеты (по очереди написать эти команды в консоль):</p>
@@ -35,11 +35,6 @@ python3 main.py
 
 ```
 TOKEN=[токен из BotFather]
-```
-<p>8. Бот доступен по ссылке</p>
-
-```
-https://t.me/mkimtest_bot
 ```
 
 ### Запуск docker-контейнера
