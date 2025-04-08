@@ -1,26 +1,31 @@
-__all__ = [
-    'register_message_handlers'
-]
-
-
-# TODO - Опишите вызов функций обработчиков через маршрутизацию
-# Работа c Router - https://docs.aiogram.dev/en/v3.14.0/dispatcher/router.html
-# Пример работы с Router через декораторы @router - https://mastergroosha.github.io/aiogram-3-guide/routers/
-# Пример работы с Router через функцию сборщик https://stackoverflow.com/questions/77809738/how-to-connect-a-router-in-aiogram-3-x-x#:~:text=1-,Answer,-Sorted%20by%3A
-
-
-from aiogram import types, Router
+from aiogram import types
+from aiogram.types import Message
 from aiogram.filters import Command
-from .keyboard import keyboard  # импорт из клавиатур
-from .callbacks import callback_message  # импорт из коллбека
+from aiogram import Router
 
+r = Router()
 
-async def process_start_command(message: types.Message):
-    '''Команда start'''
-    await message.answer(text="Привет!")
+@r.message(Command("start"))
+async def start(message: Message):
+    await message.answer(f"Привет, {message.from_user.full_name}")
 
+@r.message(Command("status"))
+async def status(message: Message):
+    await message.answer(f"Username пользователя - {message.from_user.username}\nId пользователя - {message.from_user.id}")
 
-# Здесь описывается маршрутизация
-def register_message_handlers():
-    '''Маршрутизация обработчиков'''
-    pass
+@r.message(Command("help"))
+async def help(message: Message):
+    await message.answer("Это бот для образовательных целей!)\nРазработчики - команда 10 \nСписок команд:\nstart - запуск бота\nhelp - информация о боте\nstatus - вывод Id и Username пользователя\nbutton - вывод сообщения с кнопкой")
+
+from handlers.keyboard import button_keyboard
+
+@r.message(Command("button"))
+async def button(message: types.Message):
+    await message.answer(text="Нажмите на кнопку !)",reply_markup=button_keyboard())
+
+@r.message()
+async def echo(message: Message):
+    try:
+        await message.send_copy(chat_id=message.chat.id)
+    except TypeError:
+        await message.answer("Хорошая попытка!)")
