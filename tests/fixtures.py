@@ -54,10 +54,10 @@ def mock_callbacks_router():
 
 @pytest.fixture
 def mock_set_command_list():
-    with patch("main.set_command_list", new_callable=AsyncMock) as mock: # main here
+    with patch("main.set_command_list", new_callable=AsyncMock) as mock:
         yield mock
 
 @pytest.fixture
 def mock_setup_logger():
-    with patch("main.setup_logger") as mock: # main here
+    with patch("main.setup_logger") as mock:
         yield mock
