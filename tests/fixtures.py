@@ -37,7 +37,6 @@ def mock_bot():
 
 @pytest.fixture
 def mock_dispatcher():
-    """Mocks the aiogram Dispatcher."""
     mock = MagicMock(spec=Dispatcher)
     mock.include_router = MagicMock()
     mock.startup = MagicMock()
