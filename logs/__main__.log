@@ -1,0 +1,14 @@
+[09-04-2025 10:46:48] INFO | aiogram.dispatcher: Start polling
+[09-04-2025 10:46:48] INFO | aiogram.dispatcher: Run polling for bot @team10test_bot id=8137179834 - 'Team10_bot'
+[09-04-2025 10:47:14] INFO | root: user 805085078 starts bot 
+[09-04-2025 10:47:14] INFO | aiogram.event: Update id=224007323 is handled. Duration 241 ms by bot id=8137179834
+[09-04-2025 10:47:15] INFO | root: user 805085078 chose status
+[09-04-2025 10:47:15] INFO | aiogram.event: Update id=224007324 is handled. Duration 86 ms by bot id=8137179834
+[09-04-2025 10:47:17] INFO | root: user 805085078 chose help
+[09-04-2025 10:47:17] INFO | aiogram.event: Update id=224007325 is handled. Duration 106 ms by bot id=8137179834
+[09-04-2025 10:47:18] INFO | root: user 805085078 chose button
+[09-04-2025 10:47:18] INFO | aiogram.event: Update id=224007326 is handled. Duration 102 ms by bot id=8137179834
+[09-04-2025 10:47:19] INFO | root: user 805085078 pushes button
+[09-04-2025 10:47:19] INFO | aiogram.event: Update id=224007327 is handled. Duration 122 ms by bot id=8137179834
+[09-04-2025 10:47:21] INFO | root: user 805085078 leaves unhandled message
+[09-04-2025 10:47:21] INFO | aiogram.event: Update id=224007328 is handled. Duration 84 ms by bot id=8137179834
