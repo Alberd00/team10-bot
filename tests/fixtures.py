@@ -1,7 +1,8 @@
 import pytest
 from aiogram import Router
 from aiogram.types import Message, CallbackQuery
-from unittest.mock import AsyncMock, MagicMock
+from unittest.mock import AsyncMock, MagicMock, patch
+from aiogram import Bot, Dispatcher
 
 @pytest.fixture
 def mock_message():
@@ -28,3 +29,35 @@ def mock_callback_query():
     mock.data = "button_callback"
     mock.from_user.username = "test_user"
     return mock
+
+@pytest.fixture
+def mock_bot():
+    mock = AsyncMock(spec=Bot)
+    return mock
+
+@pytest.fixture
+def mock_dispatcher():
+    mock = MagicMock(spec=Dispatcher)
+    mock.include_router = MagicMock()
+    mock.startup = MagicMock()
+    mock.startup.register = MagicMock()
+    mock.start_polling = AsyncMock()
+    return mock
+
+@pytest.fixture
+def mock_handlers_router():
+    return MagicMock()
+
+@pytest.fixture
+def mock_callbacks_router():
+    return MagicMock()
+
+@pytest.fixture
+def mock_set_command_list():
+    with patch("main.set_command_list", new_callable=AsyncMock) as mock:
+        yield mock
+
+@pytest.fixture
+def mock_setup_logger():
+    with patch("main.setup_logger") as mock:
+        yield mock
